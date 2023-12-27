@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Busybox ifplugd action script
+#
+# Copyright (C) 2014 Johan Hovold <johan@hovoldconsulting.com>
+
+iface=$1
+action=$2
+
+case "$action" in
+	up)
+		exec ifup $iface
+		;;
+	down)
+		exec ifdown $iface
+		;;
+esac
+
+exit 1

@@ -1,0 +1,4 @@
+# Busybox ifplugd configuration
+#
+IFPLUGD_INTERFACES="eth0"
+IFPLUGD_ARGS="-fIs -u0 -d2"

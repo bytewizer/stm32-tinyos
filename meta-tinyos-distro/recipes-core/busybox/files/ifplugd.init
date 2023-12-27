@@ -1,0 +1,57 @@
+#!/bin/sh
+#
+# Busybox ifplugd init script
+#
+# Copyright (C) 2014 Johan Hovold <johan@hovoldconsulting.com>
+
+DAEMON=/usr/sbin/ifplugd
+NAME=ifplugd
+DESC="Ethernet link-detection daemon"
+CONFIG=/etc/default/ifplugd
+PIDFILE=/var/run/$NAME
+
+if [ ! -f $CONFIG ]; then
+	echo "$0: failed to open $CONFIG"
+	exit 1
+fi
+
+. $CONFIG
+
+start() {
+	for iface in $IFPLUGD_INTERFACES; do
+		start-stop-daemon --start --quiet --exec $DAEMON \
+			-p $PIDFILE.$iface.pid -- $IFPLUGD_ARGS -i$iface \
+			-r /etc/ifplugd/action.d/ifupdown
+	done
+}
+
+stop() {
+	for iface in $IFPLUGD_INTERFACES; do
+		start-stop-daemon --stop --quiet -p $PIDFILE.$iface.pid
+	done
+}
+
+case "$1" in
+	start)
+		echo -n "Starting $DESC: "
+		start
+		echo "$NAME"
+		;;
+	stop)
+		echo -n "Stopping $DESC: "
+		stop
+		echo "$NAME"
+		;;
+	restart)
+		echo -n "Restarting $DESC: "
+		stop
+		sleep 1
+		start
+		echo "$NAME"
+		;;
+	*)
+		echo "Usage: $0 {start|stop|restart}"
+		exit 1
+esac
+
+exit $?

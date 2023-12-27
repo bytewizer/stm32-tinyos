@@ -1,0 +1,51 @@
+{
+	"extensions": {    
+		"recommendations": [
+			"yocto-project.yocto-bitbake"
+    ]},
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"bitbake.pathToBuildFolder": "${workspaceFolder}/build",
+		"bitbake.pathToEnvScript": "${workspaceFolder}/poky/oe-init-build-env",
+		"bitbake.pathToBitbakeFolder": "${workspaceFolder}/poky/bitbake",
+		"editor.rulers": [
+			120
+		],
+		"extensions.ignoreRecommendations": true,
+		"files.watcherExclude": {
+			"**/.repo": true,
+			"**/cache": true,
+			"**/downloads": true,
+			"**/meta*": true,
+			"**/poky": true,
+			"**/source": true,
+			"**/buildhistory": true,
+			"**/sstate-cache": true,
+			"**/tmp": true,
+			"**/tmp-glibc": true
+		},
+		"files.exclude": {
+			"**/.repo": true,
+			"**/cache": true,
+			"**/downloads": true,
+			"**/buildhistory": true,
+			"**/sstate-cache": true
+		},
+		"C_Cpp.files.exclude": {
+			"**/build": true
+		},
+		"git.ignoredRepositories": [
+			"./poky"
+		],
+		"python.autoComplete.extraPaths": [
+			"/home/trice/STM32/stm32-tinyos/poky/bitbake/lib"
+		],
+		"python.analysis.extraPaths": [
+			"/home/trice/STM32/stm32-tinyos/poky/bitbake/lib"
+		]
+	}
+}
