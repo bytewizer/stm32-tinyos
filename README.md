@@ -39,6 +39,11 @@ Build TinyOS
 ./run-build.sh
 ```
 
+Flash TinyOS to /dev/sdb
+```bash
+./run-build.sh flash
+```
+
 ## Using Visual Studio Code to modify the project
 ```bash
 cd stm32-tinyos
