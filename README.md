@@ -1,12 +1,16 @@
-# RoslynOS Build System
+# TinyOS Build System
 
-RoslynOS is a open-source [.NET runtime](https://dotnet.microsoft.com/) platform based on OpenEmbedded and optimized for IoT devices. 
+TinyOS is a open-source [.NET runtime](https://dotnet.microsoft.com/) platform based on OpenEmbedded and optimized for IoT devices. 
 
-RoslynOS Linux is built around busybox and systemd. This makes it small and very resource efficient. A bare metal deployment requires no more than 8 MB memory and a minimal installation to disk requires around 200 MB of storage. Devices typically take about 12 seconds to boot with networking.
+TinyOS Linux is built around busybox and systemd. This makes it small and very resource efficient. A deployment requires no more than 8 MB memory and a installation to disk requires around 200 MB of storage. Devices typically take about 12 seconds to boot with networking.
 
-You can [download](https://github.com/roslynos/stm32-oss/releases) prebuilt images or fully build a flashable image from source with the following commands, but be careful it will take several hours:
+You can [download](https://github.com/bytewizer/stm32-tinyos/releases) prebuilt images or fully build a flashable image from source with the following commands, but be careful it will take several hours:
 
 NOTE: THESE IMAGES ARE BETA AND AT THIS POINT DO NOT INCLUDED ANY SECURITY HARDENING. USE AT YOUR OWN RISK.
+
+## Give a Star! :star:
+
+If you like or are using this project to start your solution, please give it a star. Thanks!
 
 ## Clone the Repository
 
@@ -23,7 +27,7 @@ Clone the main repository using the following command:
 git clone https://github.com/bytewizer/stm32-tinyos.git
 ```
 
-Before you continue to Build, make sure you're in the roslyn directory:
+Before you continue to build, make sure you're in the stm32-tinyos directory:
 ```bash
 cd stm32-tinyos
 ./run-build.sh install
@@ -35,14 +39,16 @@ Build TinyOS
 ./run-build.sh
 ```
 
+## Using Visual Studio Code to modify the project
+```bash
+cd stm32-tinyos
+code stm32-tinyos.code-workspace
+```
+
 ## Using minicom command to connect via console
 ```bash
 minicom -D /dev/ttyUSB0 115200
 ```
-
-# Give a Star! :star:
-
-If you like or are using this project to start your solution, please give it a star. Thanks!
 
 # Contributions
 
@@ -50,7 +56,7 @@ Contributions to this project are always welcome. Please consider forking this p
 
 # Licenses
 
-A RoslynOS image is made of many components and it’s hard to describe the full details of all the licenses that are in use in the system. However, when building the system from sources with OpenEmbedded, one can find the exhaustive set of licenses used by each package in the `build/tmp/deploy/licenses` directory.
+A TinyOS image is made of many components and it’s hard to describe the full details of all the licenses that are in use in the system. However, when building the system from sources with OpenEmbedded, one can find the exhaustive set of licenses used by each package in the `build/tmp/deploy/licenses` directory.
 
 # Disclaimer
 
